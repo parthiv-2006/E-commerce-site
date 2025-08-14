@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import ProductCard from './ProductCard'
 
 function ShoppingPage() {
   const [products, setProducts] = useState([]);
@@ -15,6 +16,7 @@ function ShoppingPage() {
         return response.json();
       })
       .then((data) => {
+        console.log(data)
         setProducts(data);
         setError(null);
       })
@@ -42,7 +44,7 @@ function ShoppingPage() {
       {products.map((product) => {
         return (
           <div key={product.id}>
-            <h2>{product.title}</h2>
+            <ProductCard product={product}/>
           </div>
         );
       })}
