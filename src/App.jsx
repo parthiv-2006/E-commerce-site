@@ -25,6 +25,9 @@ function App() {
       }
     })
   }
+  useEffect(() => {
+    console.log(cartItems)
+  }, [cartItems])
   
 
   return (
@@ -33,7 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShoppingPage addToCart={addToCart}/>} />
-        <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/cart" element={<ShoppingCart cartItems={cartItems}/>} />
       </Routes>
     </BrowserRouter>
   );
