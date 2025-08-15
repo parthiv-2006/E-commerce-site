@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ProductCard from './ProductCard'
 
-function ShoppingPage() {
+function ShoppingPage({addToCart}) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,7 +44,7 @@ function ShoppingPage() {
       {products.map((product) => {
         return (
           <div key={product.id}>
-            <ProductCard product={product}/>
+            <ProductCard product={product} addToCart={addToCart}/>
           </div>
         );
       })}

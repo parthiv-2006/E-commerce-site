@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart }) {
   const [quantity, setQuantity] = useState(1);
   const [inputValue, setInputValue] = useState(quantity);
   const [isEditing, setIsEditing] = useState(false);
@@ -10,6 +10,13 @@ function ProductCard({ product }) {
       setQuantity(quantity - 1);
       setInputValue(quantity - 1);
     }
+  }
+
+  function handleAddToCart() {
+    addToCart(product, quantity);
+    alert(`Added ${quantity} ${product.title} to cart`)
+    setQuantity(1);
+    setInputValue(1);
   }
 
   function handleIncrement() {
@@ -63,7 +70,7 @@ function ProductCard({ product }) {
           />
           <button onClick={handleIncrement}>+</button>
         </div>
-        <button>Add to Cart</button>
+        <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );
