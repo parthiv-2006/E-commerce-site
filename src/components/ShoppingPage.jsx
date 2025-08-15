@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import ProductCard from './ProductCard'
+import PropTypes from 'prop-types'
 
 function ShoppingPage({addToCart}) {
   const [products, setProducts] = useState([]);
@@ -50,6 +51,10 @@ function ShoppingPage({addToCart}) {
       })}
     </div>
   );
+}
+
+ShoppingPage.propTypes = {
+  addToCart: PropTypes.func.isRequired
 }
 
 export default ShoppingPage;

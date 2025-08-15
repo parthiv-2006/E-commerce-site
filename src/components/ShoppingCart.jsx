@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 function ShoppingCart({ cartItems }) {
   function calculateTotal() {
     return cartItems.reduce(
@@ -44,4 +46,9 @@ function ShoppingCart({ cartItems }) {
     </div>
   );
 }
+
+ShoppingCart.propTypes = {
+  cartItems: PropTypes.array.isRequired,
+}
+
 export default ShoppingCart;

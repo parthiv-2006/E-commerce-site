@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types"
 
 const Navbar = ({ cartItems }) => {
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
@@ -19,5 +20,9 @@ const Navbar = ({ cartItems }) => {
       </div>
     );
   }
+
+Navbar.propTypes = {
+  cartItems: PropTypes.array.isRequired
+}
 
 export default Navbar;
