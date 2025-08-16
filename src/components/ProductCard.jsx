@@ -1,7 +1,6 @@
 import { useState } from "react";
-import PropTypes from 'prop-types';
-
-
+import PropTypes from "prop-types";
+import style from "../styles/ProductCard.module.css";
 
 function ProductCard({ product, addToCart }) {
   const [quantity, setQuantity] = useState(1);
@@ -17,7 +16,7 @@ function ProductCard({ product, addToCart }) {
 
   function handleAddToCart() {
     addToCart(product, quantity);
-    alert(`Added ${quantity} ${product.title} to cart`)
+    alert(`Added ${quantity} ${product.title} to cart`);
     setQuantity(1);
     setInputValue(1);
   }
@@ -48,21 +47,23 @@ function ProductCard({ product, addToCart }) {
   }
 
   return (
-    <div>
-      <div>
+    <div className={style["card-container"]}>
+      <div className={style["image-container"]}>
         <img src={product.image} alt={product.title} />
       </div>
-      <div>
+      <div className={style["product-info"]}>
         <h4>{product.title}</h4>
-        <p>{product.rating.rate}</p>
+        <p><i class="fa-solid fa-star"></i> {product.rating.rate}</p>
       </div>
-      <div>
+      <div className={style["product-description"]}>
         <p>{product.description}</p>
       </div>
-      <div>
+      <div className={style["product-price"]}>
         <p>${product.price}</p>
-        <div>
-          <button onClick={handleDecrement}>-</button>
+        <div className={style["quantity-container"]}>
+          <button class={style["decrement"]} onClick={handleDecrement}>
+            -
+          </button>
           <input
             type="number"
             value={isEditing ? inputValue : quantity}
@@ -71,9 +72,13 @@ function ProductCard({ product, addToCart }) {
             onBlur={handleInputBlur}
             min="1"
           />
-          <button onClick={handleIncrement}>+</button>
+          <button class={style["increment"]} onClick={handleIncrement}>
+            +
+          </button>
         </div>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button class={style["add-to-cart"]} onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
@@ -91,6 +96,6 @@ ProductCard.propTypes = {
     }).isRequired,
   }).isRequired,
   addToCart: PropTypes.func.isRequired,
-}
+};
 
 export default ProductCard;
