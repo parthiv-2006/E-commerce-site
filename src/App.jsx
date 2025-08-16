@@ -31,7 +31,7 @@ function App() {
   
 
   return (
-    <BrowserRouter>
+    <BrowserRouter className="main">
       <Navbar cartItems={cartItems}/>
       <Routes>
         <Route path="/" element={<HomePage />} />
