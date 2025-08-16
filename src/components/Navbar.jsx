@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types"
+import style from '../styles/Navbar.module.css'
 
 const Navbar = ({ cartItems }) => {
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
     return (
-      <div>
-        <h2><Link to="/">Buyable</Link></h2>
+      <div className={style["container"]}>
+        <h2 className={style["title"]}><Link className={style["hidden"]} to="/">Buyable</Link></h2>
         <ul>
           <li>
             <Link to="/">Home</Link>

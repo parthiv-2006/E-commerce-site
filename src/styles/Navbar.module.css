@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.hidden {
+  text-decoration: none;
+  color: rgb(126, 63, 228);
+}
+
+ul li a {
+    font-size: 1.25rem;
+text-decoration: none;
+  color: rgb(88, 88, 88);
+  transition: color 0.2s ease-in;
+}
+
+ul li a:hover {
+  color: rgb(126, 63, 228);
+}
+
+.container ul {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+}
